@@ -1,5 +1,7 @@
 # Bowling score
 
+[![.NET](https://github.com/zisiszikos/BowlingScore/actions/workflows/dotnet.yml/badge.svg)](https://github.com/zisiszikos/BowlingScore/actions/workflows/dotnet.yml)
+
 ## Scoring Rules
 - There are 10 turns called frames. Each frame begins with 10 pins, and the bowler gets up to two tries to knock them all over.
 - One point is scored for each pin that is knocked over, and when fewer than all ten pins are knocked down in two rolls in a frame (an open frame), the frame is scored with the total number of pins knocked down.
