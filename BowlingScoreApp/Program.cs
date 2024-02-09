@@ -7,7 +7,7 @@ public class Program
         if (args.Length > 0)
         {
             List<int> Rolls = args[0].Split(',').Select(int.Parse).ToList();
-            Bowling BowlingGame = new();
+            Game BowlingGame = new();
 
             if (args.ElementAtOrDefault(1) != null && args[1] == "verbose")
             {

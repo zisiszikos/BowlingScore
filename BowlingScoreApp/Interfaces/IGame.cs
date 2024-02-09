@@ -1,6 +1,6 @@
 namespace BowlingScoreApp;
 
-public interface IBowling
+public interface IGame
 {
     int CalculateRunningScore(List<int> Rolls);
 }

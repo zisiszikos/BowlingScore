@@ -1,6 +1,6 @@
 namespace BowlingScoreApp;
 
-public class Bowling : IBowling
+public class Game : IGame
 {
     public int CalculateRunningScore(List<int> Rolls)
     {
