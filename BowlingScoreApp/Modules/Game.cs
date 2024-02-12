@@ -17,13 +17,11 @@ public class Game : IGame
             }
             else // Is one of regular frame rolls
             {
-                if (NextFrame.Roll1 < 10) // Not a strike
+                // Not a strike and No second roll yet
+                if (NextFrame.Roll1 < 10 && Rolls.Count > 0)
                 {
-                    if (Rolls.Count > 0) // No second roll yet
-                    {
-                        NextFrame.Roll2 = Rolls[0];
-                        Rolls.RemoveAt(0);
-                    }
+                    NextFrame.Roll2 = Rolls[0];
+                    Rolls.RemoveAt(0);
                 }
             }
 

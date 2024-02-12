@@ -1,6 +1,6 @@
 namespace BowlingScoreTesting;
 
-public class TestData
+public static class TestData
 {
     public static IEnumerable<TestCaseData> CalculateRunningScoreTestCases()
     {
