@@ -2,6 +2,11 @@ namespace BowlingScoreApp;
 
 public class Game : IGame
 {
+    /// <summary>
+    /// Calculates the running scrore at any point of a Bowling game.
+    /// </summary>
+    /// <param name="Rolls">A series of Bowling Rolls</param>
+    /// <returns>The running score that derives from the given Rolls</returns>
     public int CalculateRunningScore(List<int> Rolls)
     {
         List<IFrame> FramesList = [];
