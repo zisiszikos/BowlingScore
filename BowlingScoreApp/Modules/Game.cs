@@ -1,41 +1,38 @@
 namespace BowlingScoreApp;
 
+/// <summary>
+/// A Bowling game score calculator
+/// </summary>
 public class Game : IGame
 {
     /// <summary>
     /// Calculates the running scrore at any point of a Bowling game.
     /// </summary>
-    /// <param name="Rolls">A series of Bowling Rolls</param>
+    /// <param name="RollsList">A series of Bowling Rolls</param>
     /// <returns>The running score that derives from the given Rolls</returns>
     public int CalculateRunningScore(List<int> Rolls)
     {
+        Stack<int> RollsList = new Stack<int>(Rolls.Reverse<int>());
         List<IFrame> FramesList = [];
 
-        while (Rolls.Count > 0)
+        while (RollsList.Count > 0)
         {
-            IFrame NextFrame = new Frame() { Roll1 = Rolls[0] };
-            Rolls.RemoveAt(0);
+            IFrame CurrentFrame = new Frame() { Roll1 = RollsList.Pop() };
 
             if (FramesList.Count >= 10) // Is one of bonus rolls
             {
-                NextFrame.IsBonus = true;
+                CurrentFrame.IsBonus = true;
             }
-            else // Is one of regular frame rolls
+            else if (RollsList.Count > 0 && CurrentFrame.Roll1 < 10) // Has more rolls and Roll1 is not a strike
             {
-                // Not a strike and No second roll yet
-                if (NextFrame.Roll1 < 10 && Rolls.Count > 0)
-                {
-                    NextFrame.Roll2 = Rolls[0];
-                    Rolls.RemoveAt(0);
-                }
+                CurrentFrame.Roll2 = RollsList.Pop();
             }
 
-            FramesList.Add(NextFrame);
+            FramesList.Add(CurrentFrame);
 
             if (FramesList.Count > 1) // First frame doesn't require any checks
             {
                 IFrame PreviousFrame = FramesList[^2];
-                IFrame CurrentFrame = FramesList[^1];
 
                 if (PreviousFrame.IsSpare())
                 {
